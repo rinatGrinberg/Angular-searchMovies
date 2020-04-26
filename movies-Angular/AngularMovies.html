@@ -1,0 +1,70 @@
+
+
+<html ng-app="myApp" ng-app="n" >
+<head>
+
+	<script src="AMscript/angular.min.js"></script>
+		<script src="AMscript/Arouth.js" ></script>
+		<script src="AMscript/n.js"></script>
+		<script src="AMscript/myApp.js"></script>
+		<script language="javascript" type="text/javascript" src="jquery-3.4.1.min.js"></script>
+		<script src="AMscript/ctrls.js"></script>
+	<link rel="stylesheet" type="text/css" href="style1.css" />
+	<style type="text/css">
+	
+	</style>
+
+
+</head>
+
+<body >
+
+	<div ng-app="myApp1" ng-controller="myCtrl1">
+
+		<h1 ng-mousemove="count = count + 1">Mouse Over Me!</h1>
+		
+		<h2>{{ count }}</h2>
+		
+		</div>
+		<script>
+		var app = angular.module('myApp1', []);
+		app.controller('myCtrl1', function($scope) {
+			$scope.count = 0;
+		});
+		</script> 
+
+
+<div class="all_site" ng-controller="myController">
+	<div class="serch">
+
+    <label>serch the movie:</label>
+    <input type="text" ng-model="serch_query">	
+    </div>	
+    
+        <label>order by:</label>
+        <select ng-model="order_query">
+            <option value="name">name</option>
+            <option value="views">views</option>
+            <option value="seasons">seasons</option>
+        </select>
+        reverse <input type="checkbox" ng-model="reverse_query" value="reverse">
+    
+        <div class="box" ng-repeat="item in series | filter:serch_query| orderBy:order_query:reverse_query">
+    <h1> the movie is:</h1> {{item.name}}
+    
+    <img ng-src="_images/{{item.image}}" width="300">
+    <article>
+    <strong> seasons:</strong>{{item.seasons}}
+    <br>
+    <strong>views:</strong>{{item.views}}
+    
+    </article>
+    </div>
+  
+
+
+</div>
+ 
+
+</body>
+</html>

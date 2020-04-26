@@ -1,0 +1,26 @@
+
+<div class="serch">
+    <label>serch the movie:</label>
+    <input type="text" ng-model="serch_query">	
+    </div>	
+    
+        <label>order by:</label>
+        <select ng-model="order_query">
+            <option value="name">name</option>
+            <option value="views">views</option>
+            <option value="seasons">seasons</option>
+        </select>
+        reverse <input type="checkbox" ng-model="reverse_query" value="reverse">
+    
+        <div class="box" ng-repeat="item in series | filter:serch_query| orderBy:order_query:reverse_query">
+    <h1> the movie is:</h1> {{item.name}}
+    
+    <img ng-src="_images/{{item.image}}" width="300">
+    <article>
+    <strong> seasons:</strong>{{item.seasons}}
+    <br>
+    <strong>views:</strong>{{item.views}}
+    
+    </article>
+    </div>
+  
